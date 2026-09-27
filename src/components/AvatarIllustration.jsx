@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Terminal, Palette } from 'lucide-react'
 import { SparkleIcon } from './SocialIcons'
-import avatarImg from '../assets/avatar.jpg'
+import avatarImg from '../assets/avatar.png' // Yahan apni nayi image ka path set karein
 
 export default function AvatarIllustration() {
   return (
