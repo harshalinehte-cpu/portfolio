@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    background: #292C2F;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #292C2F;
+    color: #F5F5F5;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* =========================
+   PREMIUM DARK BACKGROUND
+   ========================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 255, 255, 0.055),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(255, 255, 255, 0.025),
+      transparent 30%
+    ),
+    #292C2F;
+
+  background-attachment: fixed;
+}
+
+/* =========================
+   SUBTLE GRAIN
+   ========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.65'/%3E%3C/svg%3E");
+
+  mix-blend-mode: overlay;
+}
+
+/* =========================
+   CURSOR LIGHT
+   ========================= */
+
+.cursor-light {
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.035) 25%,
+    transparent 70%
+  );
+
+  filter: blur(40px);
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    left 0.18s ease-out,
+    top 0.18s ease-out;
+
+  will-change: left, top;
+}
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #292C2F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #55595D;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #70757A;
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-light {
+    display: none !important;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+  .cursor-light {
+    display: none;
+  }
+}
